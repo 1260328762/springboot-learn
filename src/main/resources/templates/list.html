@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr th:each="p,iterStat:${permissionList}">
+        <td th:id="${iterStat.count}" th:text="${p.permissionId}"></td>
+        <td th:text="${p.permissionName}"></td>
+        <td th:text="${p.menuId}"></td>
+        <td th:text="${p.status}"></td>
+        <td th:text="${iterStat.count}"></td>
+        <td th:text="${iterStat.current}"></td>
+        <td th:text="${iterStat.even}"></td>
+        <td th:text="${iterStat.index}"></td>
+        <td th:text="${iterStat.size}">mmmmmm</td>
+    </tr>
+</table>
+</body>
+
+<script th:src="@{../js/test.js}"></script>
+</html>
