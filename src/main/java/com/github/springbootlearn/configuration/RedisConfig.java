@@ -9,6 +9,9 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPoolConfig;
 
+/**
+ * redis配置类
+ */
 @Configuration
 public class RedisConfig {
 
