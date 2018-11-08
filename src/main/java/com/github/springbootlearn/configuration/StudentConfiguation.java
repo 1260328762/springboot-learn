@@ -11,17 +11,9 @@ import redis.clients.jedis.Jedis;
  * 自定义配置类
  */
 @Configuration
-@PropertySource("classpath:redis.properties")
 public class StudentConfiguation {
 
-    @Value("${redis.url}")
-    private String redisUrl;
 
-    @Value("${redis.port}")
-    private Integer redisPort;
-
-    @Value("${redis.password}")
-    private String password;
 
 
     @Bean

@@ -9,7 +9,7 @@
 <table>
     <tr th:each="p,iterStat:${permissionList}">
         <td th:id="${iterStat.count}" th:text="${p.permissionId}"></td>
-        <td th:text="${p.permissionName}"></td>
+        <td><a th:href="${p.permissionName}" th:text="${p.permissionName}"></a></td>
         <td th:text="${p.menuId}"></td>
         <td th:text="${p.status}"></td>
         <td th:text="${iterStat.count}"></td>
