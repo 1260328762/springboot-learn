@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>文件目录</title>
+    <script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+</head>
+<body>
+
+<ul>
+    <li>
+        <a id="C:/" href="javascript:void(0);" onclick="listFile(this)">C:/</a>
+    </li>
+    <li>
+        <a id="D:/" href="javascript:void(0);" onclick="listFile(this)">D:/</a>
+    </li>
+    <li>
+        <a id="E:/" href="javascript:void(0);" onclick="listFile(this)">E:/</a>
+    </li>
+</ul>
+
+
+<script>
+    //<![CDATA[
+    function listFile(res) {
+        $.ajax({
+            url: "./findFileByPath",
+            type: "POST",
+            data: {
+                "path":res.id
+            },
+            success: function (data) {
+                var list = "<ul>";
+                for (var i=0;i<data.length;i++){
+                    list+="<li><a id="+data[i].filePath+" href='javascript:void(0);' onclick='listFile(this)'>"+data[i].fileName+"</a></li>";
+                }
+                list+="</ul>";
+                res.after($(list).get(0));
+                $(res).attr("onclick","collapse(this)");
+            }
+
+        });
+    }
+    
+    function collapse(res) {
+        //清空列表
+        $(res).next().remove();
+        $(res).attr("onclick","listFile(this)")
+    }
+    //]]>
+</script>
+</body>
+</html>
